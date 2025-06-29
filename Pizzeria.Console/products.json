@@ -1,0 +1,12 @@
+[
+  {
+    "ProductId": "4fa85f64-5717-4562-b3fc-2c963f66afb7",
+    "ProductName": "Margherita Pizza",
+    "Price": 10.50
+  },
+  {
+    "ProductId": "5fa85f64-5717-4562-b3fc-2c963f66afc8",
+    "ProductName": "Pepperoni Pizza",
+    "Price": 12.00
+  }
+]

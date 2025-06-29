@@ -1,0 +1,47 @@
+[
+  {
+    "ProductId": "4fa85f64-5717-4562-b3fc-2c963f66afb7",
+    "Ingredients": [
+      {
+        "Name": "Flour",
+        "Amount": 200,
+        "Unit": "g"
+      },
+      {
+        "Name": "Tomato Sauce",
+        "Amount": 100,
+        "Unit": "g"
+      },
+      {
+        "Name": "Mozzarella",
+        "Amount": 150,
+        "Unit": "g"
+      }
+    ]
+  },
+  {
+    "ProductId": "5fa85f64-5717-4562-b3fc-2c963f66afc8",
+    "Ingredients": [
+      {
+        "Name": "Flour",
+        "Amount": 200,
+        "Unit": "g"
+      },
+      {
+        "Name": "Tomato Sauce",
+        "Amount": 100,
+        "Unit": "g"
+      },
+      {
+        "Name": "Mozzarella",
+        "Amount": 150,
+        "Unit": "g"
+      },
+      {
+        "Name": "Pepperoni",
+        "Amount": 80,
+        "Unit": "g"
+      }
+    ]
+  }
+]
