@@ -1,4 +1,3 @@
-using System.Text.Json.Serialization;
 using Pizzeria.Domain.Entities.OrderEntity.Root.Entities;
 using Pizzeria.Domain.Entities.OrderEntity.Root.ValueObjects;
 using Pizzeria.Domain.SeedWork;
