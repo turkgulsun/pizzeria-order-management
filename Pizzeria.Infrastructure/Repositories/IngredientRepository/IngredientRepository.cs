@@ -17,10 +17,10 @@ public class IngredientRepository : IIngredientRepository
     {
         _fileService = fileService;
         _logger = logger;
-            
+
         _retryPolicy = Policy
             .Handle<Exception>()
-            .WaitAndRetryAsync(3, retryAttempt => 
+            .WaitAndRetryAsync(3, retryAttempt =>
                 TimeSpan.FromSeconds(Math.Pow(2, retryAttempt)));
     }
 
@@ -31,9 +31,35 @@ public class IngredientRepository : IIngredientRepository
             _logger.LogInformation("Fetching all product ingredients");
             var filePath = Path.Combine(Directory.GetCurrentDirectory(), "ingredients.json");
             var content = await _fileService.ReadFileContent(filePath);
+
+            var productIngredientDtos = JsonSerializer.Deserialize<List<ProductIngredientDto>>(content)
+                                        ?? throw new InvalidOperationException("Failed to deserialize ingredients");
+            
+            var productIngredients = productIngredientDtos.Select(dto =>
+                new ProductIngredient(
+                    productId: dto.ProductId,
+                    ingredients: dto.Ingredients
+                        .Select(i => new Ingredient(i.Name, i.Amount, i.Unit))
+                        .ToList()
+                )
+            ).ToList();
+
+            return productIngredients;
                 
-            return JsonSerializer.Deserialize<List<ProductIngredient>>(content) 
-                   ?? throw new InvalidOperationException("Failed to deserialize ingredients");
+               
         });
+    }
+
+    private class IngredientDto
+    {
+        public string Name { get; set; } = string.Empty;
+        public decimal Amount { get; set; }
+        public string Unit { get; set; } = "g";
+    }
+
+    private class ProductIngredientDto
+    {
+        public Guid ProductId { get; set; }
+        public List<IngredientDto> Ingredients { get; set; } = new();
     }
 }

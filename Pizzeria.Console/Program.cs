@@ -51,7 +51,7 @@ try
         Console.WriteLine("Items:");
         foreach (var item in order.Items)
         {
-            Console.WriteLine($"  - Product: {item.ProductId}, Quantity: {item.Quantity}, Unit Price: {item.Price:C}");
+            Console.WriteLine($"  - Product: {item.ProductName}, Quantity: {item.Quantity}, Unit Price: {item.Price:C}");
         }
 
         Console.WriteLine();

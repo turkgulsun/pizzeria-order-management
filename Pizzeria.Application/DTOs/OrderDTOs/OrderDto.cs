@@ -1,12 +1,15 @@
+using Pizzeria.Domain.Entities.OrderEntity.Root.ValueObjects;
+
 namespace Pizzeria.Application.DTOs.OrderDTOs;
 
 public record OrderDto(
     Guid Id,
     DateTime CreatedAt,
     DateTime DeliveryAt,
-    string DeliveryAddress,
+    Address DeliveryAddress,
     List<OrderItemDto> Items,
-    decimal TotalPrice);
+    decimal TotalPrice
+);
 
 public record OrderItemDto(
     Guid ProductId,
