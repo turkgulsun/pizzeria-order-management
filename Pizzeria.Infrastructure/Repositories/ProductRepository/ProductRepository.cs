@@ -31,9 +31,26 @@ public class ProductRepository : IProductRepository
             _logger.LogInformation("Fetching all products");
             var filePath = Path.Combine(Directory.GetCurrentDirectory(), "products.json");
             var content = await _fileService.ReadFileContent(filePath);
+            
+            var productDtos = JsonSerializer.Deserialize<List<ProductDto>>(content)
+                            ?? throw new InvalidOperationException("Failed to deserialize products");
 
-            return JsonSerializer.Deserialize<List<Product>>(content)
-                   ?? throw new InvalidOperationException("Failed to deserialize products");
+            var products = productDtos.Select(dto =>
+                new Product(
+                    id: dto.ProductId,
+                    productName:dto.ProductName,
+                    price:dto.Price
+                )
+            ).ToList();
+
+            return products;
         });
+    }
+
+    private class ProductDto
+    {
+        public Guid ProductId { get; set; }
+        public string ProductName { get; set; }
+        public decimal Price { get; set; }
     }
 }

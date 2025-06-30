@@ -1,0 +1,9 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=0666150e_002D31c5_002D4aed_002D9535_002D8c682b877bed/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="Calculate_Total_Ingredients_For_Orders" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;Or&gt;
+    &lt;TestAncestor&gt;
+      &lt;TestId&gt;xUnit::D6D75F95-410C-491A-BF8E-DDF1A626A99F::net8.0::Pizzeria.UnitTests.IngredientTests.Calculate_Total_Ingredients_For_Orders&lt;/TestId&gt;
+    &lt;/TestAncestor&gt;
+    &lt;ProjectFile&gt;D6D75F95-410C-491A-BF8E-DDF1A626A99F/f:OrderTests.cs&lt;/ProjectFile&gt;
+  &lt;/Or&gt;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

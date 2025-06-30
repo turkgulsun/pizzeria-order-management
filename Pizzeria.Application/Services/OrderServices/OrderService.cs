@@ -45,7 +45,7 @@ public class OrderService(IOrderRepository orderRepository,
 
             foreach (var item in order.Items)
             {
-                var product = products.FirstOrDefault(p => p.ProductId == item.ProductId);
+                var product = products.FirstOrDefault(p => p.Id == item.ProductId);
                 if (product == null)
                 {
                     logger.LogWarning("Product {ProductId} not found for order {OrderId}",
@@ -76,32 +76,7 @@ public class OrderService(IOrderRepository orderRepository,
 
         return validOrders;
     }
-
-    private async Task<OrderDto> ProcessSingleOrder(Order order, IEnumerable<Product> products)
-    {
-        decimal totalPrice = 0;
-        var orderItems = new List<OrderItemDto>();
-
-        foreach (var item in order.Items)
-        {
-            var product = products.FirstOrDefault(p => p.ProductId == item.ProductId)
-                          ?? throw new KeyNotFoundException($"Product {item.ProductId} not found");
-
-            totalPrice += product.Price * item.Quantity;
-            orderItems.Add(new OrderItemDto(
-                item.ProductId,
-                item.Quantity,
-                product.ProductName,
-                product.Price));
-        }
-
-        return order.Adapt<OrderDto>() with
-        {
-            Items = orderItems,
-            TotalPrice = totalPrice
-        };
-    }
-
+    
     public async Task<IEnumerable<IngredientSummaryDto>> CalculateRequiredIngredients()
     {
         logger.LogInformation("Calculating required ingredients");

@@ -14,7 +14,8 @@ public static class MappingConfig
                 new OrderItemDto(
                     item.ProductId,
                     item.Quantity,
-                    "",
-                    0)));
+                    "", // ProductName OrderService’de doldurulacak
+                    0   // Price da OrderService’de doldurulacak
+                )).ToList());
     }
 }
