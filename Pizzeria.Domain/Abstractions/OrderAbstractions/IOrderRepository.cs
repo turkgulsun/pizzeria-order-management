@@ -1,4 +1,3 @@
-using Pizzeria.Domain.Entities.OrderEntity;
 using Pizzeria.Domain.Entities.OrderEntity.Root;
 
 namespace Pizzeria.Domain.Abstractions.OrderAbstractions;

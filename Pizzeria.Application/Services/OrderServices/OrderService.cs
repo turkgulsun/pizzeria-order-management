@@ -9,7 +9,6 @@ using Pizzeria.Domain.Abstractions.OrderAbstractions;
 using Pizzeria.Domain.Abstractions.ProductAbstractions;
 using Pizzeria.Domain.Entities.OrderEntity.Root;
 using Pizzeria.Domain.Entities.OrderEntity.Validators;
-using Pizzeria.Domain.Entities.ProductEntity;
 
 namespace Pizzeria.Application.Services.OrderServices;
 
